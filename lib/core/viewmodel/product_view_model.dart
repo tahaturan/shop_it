@@ -9,7 +9,7 @@ abstract class ProductViewModel extends LoadingState<ProductView> with ProjectDi
 
   List<ProductModel> products = [];
 
-  void chechCategoryName() {
+  void checkCategoryName() {
     if (widget.categoryName == ProductPath.products.name) {
       fetchProduct();
     } else {
@@ -21,7 +21,7 @@ abstract class ProductViewModel extends LoadingState<ProductView> with ProjectDi
   void initState() {
     super.initState();
     productService = ProductService(service);
-    chechCategoryName();
+    checkCategoryName();
   }
 
   Future<void> fetchProduct() async {
