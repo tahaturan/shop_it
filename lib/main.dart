@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_it/core/view/home_view.dart';
+import 'package:shop_it/product/theme/project_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Shop It',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        useMaterial3: true,
-      ),
+      theme: ProjectTheme.theme,
       home: const HomeView(),
     );
   }

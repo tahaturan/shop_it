@@ -5,6 +5,7 @@ class HomeViewAppBar extends StatelessWidget with PreferredSizeWidget {
   const HomeViewAppBar({
     Key? key,
   }) : super(key: key);
+  final String _title = 'ShopIT';
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class HomeViewAppBar extends StatelessWidget with PreferredSizeWidget {
       title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [ProjectImageEnum.logo.image(), const Text('ShopIT')]),
+          children: [ProjectImageEnum.logo.image(), Text(_title)]),
       actions: [
         IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
         IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart_outlined)),
