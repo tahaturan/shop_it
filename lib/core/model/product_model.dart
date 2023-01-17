@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 class ProductModel {
   int? id;
   String? title;
@@ -31,6 +32,24 @@ class ProductModel {
       data['rating'] = rating!.toJson();
     }
     return data;
+  }
+
+  @override
+  bool operator ==(covariant ProductModel other) {
+    if (identical(this, other)) return true;
+
+    return other.id == id &&
+        other.title == title &&
+        other.price == price &&
+        other.description == description &&
+        other.category == category &&
+        other.image == image &&
+        other.rating == rating;
+  }
+
+  @override
+  int get hashCode {
+    return id.hashCode ^ title.hashCode ^ price.hashCode ^ description.hashCode ^ category.hashCode ^ image.hashCode ^ rating.hashCode;
   }
 }
 

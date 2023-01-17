@@ -10,7 +10,7 @@ class ShoppingCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    int value = ref.watch(shoppingCardProvider).shoppCard.length;
+    int value = ref.watch(shoppingCardProvider).length;
 
     return Badge(
       animationDuration: ProjectDurationEnum.shoppingCard.duration(),
