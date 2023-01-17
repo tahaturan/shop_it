@@ -9,10 +9,7 @@ class ShoppingCardNotifier extends StateNotifier<List<ProductModel>> {
   }
 
   void deleteProduct(ProductModel product) {
-    state = [
-      for (final item in state)
-        if (item.id != product.id) item
-    ];
+    state = state.where((element) => element.id != product.id).toList();
   }
 }
 
