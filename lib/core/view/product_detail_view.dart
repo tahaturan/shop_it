@@ -26,7 +26,7 @@ class ProductDetailView extends ConsumerWidget {
     }
 
     // ignore: no_leading_underscores_for_local_identifiers, prefer_const_declarations
-    final String _addToCard = '';
+    final String _addToCard = 'Add To Card';
 
     return Scaffold(
       appBar: AppBar(
