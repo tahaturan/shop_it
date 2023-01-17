@@ -8,7 +8,15 @@ class ProductModel {
   String? image;
   Rating? rating;
 
-  ProductModel({this.id, this.title, this.price, this.description, this.category, this.image, this.rating});
+  ProductModel({
+    this.id,
+    this.title,
+    this.price,
+    this.description,
+    this.category,
+    this.image,
+    this.rating,
+  });
 
   ProductModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -50,6 +58,27 @@ class ProductModel {
   @override
   int get hashCode {
     return id.hashCode ^ title.hashCode ^ price.hashCode ^ description.hashCode ^ category.hashCode ^ image.hashCode ^ rating.hashCode;
+  }
+
+  ProductModel copyWith({
+    int? id,
+    String? title,
+    num? price,
+    String? description,
+    String? category,
+    String? image,
+    Rating? rating,
+    bool? favorite,
+  }) {
+    return ProductModel(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      price: price ?? this.price,
+      description: description ?? this.description,
+      category: category ?? this.category,
+      image: image ?? this.image,
+      rating: rating ?? this.rating,
+    );
   }
 }
 

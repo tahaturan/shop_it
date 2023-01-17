@@ -7,6 +7,7 @@ import 'package:shop_it/product/constants/project_colors.dart';
 import 'package:shop_it/product/constants/project_padding.dart';
 import 'package:shop_it/product/packages/shopping_card.dart';
 import 'package:shop_it/product/state/provider/shopping_list_provider.dart';
+import 'package:shop_it/product/widgets/favorite_icon_button.dart';
 
 class ProductDetailView extends ConsumerWidget {
   const ProductDetailView({
@@ -23,6 +24,9 @@ class ProductDetailView extends ConsumerWidget {
         ref.read(shoppingCardProvider.notifier).addProduct(product!);
       }
     }
+
+    // ignore: no_leading_underscores_for_local_identifiers, prefer_const_declarations
+    final String _addToCard = '';
 
     return Scaffold(
       appBar: AppBar(
@@ -50,7 +54,7 @@ class ProductDetailView extends ConsumerWidget {
                         fontSize: 21,
                       ),
                     ),
-                    IconButton(onPressed: () {}, icon: Icon(Icons.favorite_border, color: ProjectColors.buttonColor.color())),
+                    FavoriteIconButton(product: product),
                   ],
                 ),
                 Text(product?.title ?? '', style: Theme.of(context).textTheme.headline4?.copyWith(color: Colors.black)),
@@ -77,8 +81,8 @@ class ProductDetailView extends ConsumerWidget {
                     Expanded(
                       child: ElevatedButton(
                         onPressed: _addCard,
-                        child: const Text(
-                          "Add To Card",
+                        child: Text(
+                          _addToCard,
                         ),
                       ),
                     ),
