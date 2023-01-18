@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:shop_it/product/constants/prduct_image_enum.dart';
 import 'package:shop_it/product/constants/project_padding.dart';
+import 'package:shop_it/product/constants/project_string_constans.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -19,13 +20,13 @@ class ProfileView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _profileInfoWidget(context),
-            const _ProfileColumnWidget(textOne: 'General', textTwo: 'Edit Profile'),
-            const _ProfileColumnWidget(textTwo: 'Notification'),
-            const _ProfileColumnWidget(textTwo: 'Wishlist'),
-            const _ProfileColumnWidget(textOne: 'Legal', textTwo: 'Terms of Use'),
-            const _ProfileColumnWidget(textTwo: 'Privacy Policy'),
-            const _ProfileColumnWidget(textOne: 'Personal', textTwo: 'Report a Bug'),
-            const _ProfileColumnWidget(textTwo: 'Logout'),
+            const _ProfileColumnWidget(textOne: ProjectStringConstants.general, textTwo: ProjectStringConstants.editProfile),
+            const _ProfileColumnWidget(textTwo: ProjectStringConstants.notification),
+            const _ProfileColumnWidget(textTwo: ProjectStringConstants.wishList),
+            const _ProfileColumnWidget(textOne: ProjectStringConstants.legal, textTwo: ProjectStringConstants.termsOfUse),
+            const _ProfileColumnWidget(textTwo: ProjectStringConstants.privacyPolicy),
+            const _ProfileColumnWidget(textOne: ProjectStringConstants.personal, textTwo: ProjectStringConstants.reportABug),
+            const _ProfileColumnWidget(textTwo: ProjectStringConstants.logout),
           ],
         ),
       ),
