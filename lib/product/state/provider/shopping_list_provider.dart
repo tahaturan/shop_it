@@ -11,6 +11,10 @@ class ShoppingCardNotifier extends StateNotifier<List<ProductModel>> {
   void deleteProduct(ProductModel product) {
     state = state.where((element) => element.id != product.id).toList();
   }
+
+  void deleteList() {
+    state = [];
+  }
 }
 
 final shoppingCardProvider = StateNotifierProvider<ShoppingCardNotifier, List<ProductModel>>((ref) {

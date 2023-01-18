@@ -11,4 +11,5 @@ class ProjectStringConstants {
   static const String logout = 'Logout';
   static const String whatAreYouLooking = 'What are you looking for today?';
   static const String hello = 'Hi, ';
+  static const String shoppingCard = 'Shopping Card';
 }
