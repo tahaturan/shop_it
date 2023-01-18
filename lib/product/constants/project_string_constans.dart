@@ -12,4 +12,5 @@ class ProjectStringConstants {
   static const String whatAreYouLooking = 'What are you looking for today?';
   static const String hello = 'Hi, ';
   static const String shoppingCard = 'Shopping Card';
+  static const String emptyWishList = 'Your Wish list is Empty';
 }

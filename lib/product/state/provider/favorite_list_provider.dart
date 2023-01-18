@@ -11,6 +11,10 @@ class FavoriteProductNotifier extends StateNotifier<List<ProductModel>> {
   void deleteFavoriteProduct(ProductModel product) {
     state = state.where((element) => element.id != product.id).toList();
   }
+
+  void deleteAllList() {
+    state = [];
+  }
 }
 
 final favoriteProductProvider = StateNotifierProvider<FavoriteProductNotifier, List<ProductModel>>((ref) {

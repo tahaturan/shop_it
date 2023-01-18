@@ -1,10 +1,13 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:shop_it/core/model/product_model.dart';
 import 'package:shop_it/product/constants/project_padding.dart';
 import 'package:shop_it/product/constants/project_string_constans.dart';
 import 'package:shop_it/product/state/provider/shopping_list_provider.dart';
 import 'package:shop_it/product/widgets/card_shopping_widgets.dart';
+import 'package:shop_it/product/widgets/wishlist_and_shopcard_widget.dart';
 
 class ShoppinCardView extends ConsumerWidget {
   const ShoppinCardView({super.key});
@@ -15,16 +18,11 @@ class ShoppinCardView extends ConsumerWidget {
     var totalPrice = cardList.fold(0.0, (previousValue, element) => previousValue + (element.price ?? 0));
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(ProjectStringConstants.shoppingCard, style: Theme.of(context).textTheme.headline4?.copyWith(color: Colors.black)),
-        actions: [
-          IconButton(
-            onPressed: () {
-              ref.read(shoppingCardProvider.notifier).deleteList();
-            },
-            icon: const Icon(Icons.delete_outline_outlined),
-          ),
-        ],
+      appBar: WishListAndShoppingCardAppbar(
+        title: ProjectStringConstants.shoppingCard,
+        onPressed: () {
+          ref.read(shoppingCardProvider.notifier).deleteList();
+        },
       ),
       body: SafeArea(
         child: Padding(

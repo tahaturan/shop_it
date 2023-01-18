@@ -29,7 +29,7 @@ class ProductWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              ProductImageSize.medium.productImage(model ?? ProductModel(), context),
+              Center(child: ProductImageSize.medium.productImage(model ?? ProductModel(), context)),
               Text(model?.title ?? '', overflow: TextOverflow.ellipsis, textAlign: TextAlign.left),
               Text('\$${model?.price}', style: Theme.of(context).textTheme.button),
               Row(

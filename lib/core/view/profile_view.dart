@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:shop_it/core/view/wishlist_view.dart';
 
 import 'package:shop_it/product/constants/prduct_image_enum.dart';
 import 'package:shop_it/product/constants/project_padding.dart';
@@ -22,7 +23,14 @@ class ProfileView extends StatelessWidget {
             _profileInfoWidget(context),
             const _ProfileColumnWidget(textOne: ProjectStringConstants.general, textTwo: ProjectStringConstants.editProfile),
             const _ProfileColumnWidget(textTwo: ProjectStringConstants.notification),
-            const _ProfileColumnWidget(textTwo: ProjectStringConstants.wishList),
+            _ProfileColumnWidget(
+              textTwo: ProjectStringConstants.wishList,
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const WishListView(),
+                ));
+              },
+            ),
             const _ProfileColumnWidget(textOne: ProjectStringConstants.legal, textTwo: ProjectStringConstants.termsOfUse),
             const _ProfileColumnWidget(textTwo: ProjectStringConstants.privacyPolicy),
             const _ProfileColumnWidget(textOne: ProjectStringConstants.personal, textTwo: ProjectStringConstants.reportABug),
@@ -56,31 +64,37 @@ class ProfileView extends StatelessWidget {
 class _ProfileColumnWidget extends StatelessWidget {
   final String? textOne;
   final String? textTwo;
+  final VoidCallback? onPressed;
   const _ProfileColumnWidget({
     Key? key,
     // ignore: unused_element
-    this.textOne,
     // ignore: unused_element
+    this.textOne,
     this.textTwo,
+    // ignore: unused_element
+    this.onPressed,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: ProjectPadding.categoyPadding,
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Divider(
-            color: Theme.of(context).shadowColor.withOpacity(0.3),
-            thickness: 1.1,
-          ),
-          Text(textOne ?? '', style: Theme.of(context).textTheme.subtitle2?.copyWith(color: Colors.grey.shade600)),
-          textOne != null ? const SizedBox(height: 30) : const SizedBox.shrink(),
-          Text(textTwo ?? '', style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold)),
-        ],
+      child: InkWell(
+        onTap: onPressed,
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Divider(
+              color: Theme.of(context).shadowColor.withOpacity(0.3),
+              thickness: 1.1,
+            ),
+            Text(textOne ?? '', style: Theme.of(context).textTheme.subtitle2?.copyWith(color: Colors.grey.shade600)),
+            textOne != null ? const SizedBox(height: 30) : const SizedBox.shrink(),
+            Text(textTwo ?? '', style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold)),
+          ],
+        ),
       ),
     );
   }
