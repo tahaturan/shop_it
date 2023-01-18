@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shop_it/core/view/profile_view.dart';
 import 'package:shop_it/product/constants/prduct_image_enum.dart';
 import 'package:shop_it/product/packages/shopping_card.dart';
 
@@ -12,11 +13,21 @@ class HomeViewAppBar extends ConsumerWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return AppBar(
-      leading: ProjectImageEnum.profileAvatar.image(),
+      leading: InkWell(
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => const ProfileView(),
+            ));
+          },
+          child: ProjectImageEnum.profileAvatar.image()),
       title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [ProjectImageEnum.logo.image(), Text(_title)]),
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ProjectImageEnum.logo.image(),
+          Text(_title),
+        ],
+      ),
       actions: [
         IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
         const ShoppingCard(),
