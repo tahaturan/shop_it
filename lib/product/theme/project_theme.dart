@@ -12,5 +12,7 @@ class ProjectTheme {
         padding: ProjectPadding.buttonPadding,
       ),
     ),
+    scaffoldBackgroundColor: Colors.white,
+    appBarTheme: const AppBarTheme(backgroundColor: Colors.white),
   );
 }

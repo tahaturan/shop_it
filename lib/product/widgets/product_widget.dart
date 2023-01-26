@@ -21,7 +21,7 @@ class ProductWidget extends StatelessWidget {
       },
       child: Card(
         color: Colors.white,
-        elevation: 5,
+        elevation: 0,
         surfaceTintColor: Colors.white,
         child: Padding(
           padding: ProjectPadding.cardPadding,

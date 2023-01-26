@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shop_it/core/view/profile_view.dart';
+import 'package:shop_it/core/view/search_view.dart';
 import 'package:shop_it/product/constants/prduct_image_enum.dart';
 import 'package:shop_it/product/packages/shopping_card.dart';
 
@@ -29,7 +30,13 @@ class HomeViewAppBar extends ConsumerWidget with PreferredSizeWidget {
         ],
       ),
       actions: [
-        IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+        IconButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const SearchWiew(),
+              ));
+            },
+            icon: const Icon(Icons.search)),
         const ShoppingCard(),
       ],
       surfaceTintColor: Colors.lightBlue,

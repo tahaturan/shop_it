@@ -22,7 +22,7 @@ class CardShoppingWidgets extends ConsumerWidget {
       },
       background: const Icon(Icons.delete_outline_outlined),
       child: Card(
-        elevation: 5,
+        elevation: 0,
         child: Padding(
           padding: ProjectPadding.buttonPadding,
           child: Row(
