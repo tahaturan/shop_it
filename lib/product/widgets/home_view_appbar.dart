@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shop_it/core/view/profile_view.dart';
-import 'package:shop_it/core/view/search_view.dart';
 import 'package:shop_it/product/constants/prduct_image_enum.dart';
 import 'package:shop_it/product/packages/shopping_card.dart';
+import 'package:shop_it/product/widgets/my_search_delegate.dart';
 
 class HomeViewAppBar extends ConsumerWidget with PreferredSizeWidget {
   const HomeViewAppBar({
@@ -32,9 +32,7 @@ class HomeViewAppBar extends ConsumerWidget with PreferredSizeWidget {
       actions: [
         IconButton(
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const SearchWiew(),
-              ));
+              showSearch(context: context, delegate: MySearchDelegate());
             },
             icon: const Icon(Icons.search)),
         const ShoppingCard(),
